@@ -7,19 +7,21 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const { name, email, company, website, message } = body;
+    const { name, email, company, website, service, message } = body;
 
-    await resend.emails.send({
-      from: "ZagFlow <onboarding@resend.dev>",
+    const { data, error } = await resend.emails.send({
+      from: "CodeSpes <onboarding@resend.dev>",
       to: process.env.CONTACT_EMAIL!,
+      replyTo: email,
       subject: `Neue Anfrage von ${name}`,
       html: `
-        <h2>Neue Anfrage über ZagFlow</h2>
+        <h2>Neue Anfrage über CodeSpes</h2>
 
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>E-Mail:</strong> ${email}</p>
-        <p><strong>Unternehmen:</strong> ${company}</p>
-        <p><strong>Website:</strong> ${website}</p>
+        <p><strong>Unternehmen:</strong> ${company || "-"}</p>
+        <p><strong>Website:</strong> ${website || "-"}</p>
+        <p><strong>Leistung:</strong> ${service}</p>
 
         <hr>
 
@@ -27,16 +29,31 @@ export async function POST(req: Request) {
       `,
     });
 
+    if (error) {
+      console.error("RESEND ERROR:", error);
+
+      return NextResponse.json(
+        {
+          success: false,
+          error: error.message,
+        },
+        {
+          status: 500,
+        }
+      );
+    }
+
     return NextResponse.json({
       success: true,
+      id: data?.id,
     });
-} catch (error: any) {
-    console.error("RESEND ERROR:", error);
-  
+  } catch (error) {
+    console.error("CONTACT API ERROR:", error);
+
     return NextResponse.json(
       {
         success: false,
-        error,
+        error: "E-Mail konnte nicht gesendet werden.",
       },
       {
         status: 500,

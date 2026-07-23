@@ -11,15 +11,15 @@ export default function Datenschutz() {
             <p className="mt-4">
               Verantwortlich für die Datenverarbeitung auf dieser Website ist:
               <br />
-              ZagFlow
+              CodeSpes
               <br />
-              Inhaber: [Dein Vor- und Nachname]
+              Inhaberin: Elvin Ceyran
               <br />
-              [Straße + Hausnummer]
+              Aufsicht 5
               <br />
-              [PLZ] [Ort]
+              58256 Ennepetal
               <br />
-              E-Mail: kontakt@zagflow.de
+              E-Mail: codespes44@gmail.com
             </p>
           </section>
   
@@ -45,36 +45,86 @@ export default function Datenschutz() {
           </section>
   
           <section>
-            <h2 className="text-2xl font-semibold text-white">
-              4. Kontaktformular
-            </h2>
-            <p className="mt-4">
-              Die übermittelten Daten werden ausschließlich zur Bearbeitung deiner
-              Anfrage genutzt und nicht ohne deine Zustimmung weitergegeben.
-            </p>
-          </section>
+  <h2 className="text-2xl font-semibold text-white">
+    4. Kontaktformular und E-Mail-Versand
+  </h2>
+
+  <p className="mt-4">
+    Wenn du uns über das Kontaktformular kontaktierst, verarbeiten wir die von
+    dir eingegebenen Angaben, insbesondere Name, E-Mail-Adresse, Unternehmen,
+    Website, gewünschte Leistung und Nachricht, um deine Anfrage zu bearbeiten.
+  </p>
+
+  <p className="mt-4">
+    Zur technischen Übermittlung der Kontaktanfragen nutzen wir den Dienst
+    Resend. Dabei können die eingegebenen Daten an Resend übermittelt und dort
+    verarbeitet werden.
+  </p>
+
+  <p className="mt-4">
+    Die Verarbeitung erfolgt, soweit deine Anfrage auf den Abschluss eines
+    Vertrags gerichtet ist, auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
+    In anderen Fällen erfolgt sie auf Grundlage unseres berechtigten Interesses
+    an der Bearbeitung von Anfragen gemäß Art. 6 Abs. 1 lit. f DSGVO.
+  </p>
+</section>
   
-          <section>
-            <h2 className="text-2xl font-semibold text-white">
-              5. Deine Rechte
-            </h2>
-            <p className="mt-4">
-              Du hast das Recht auf Auskunft, Berichtigung, Löschung,
-              Einschränkung der Verarbeitung sowie das Recht auf Widerspruch gegen
-              die Verarbeitung deiner personenbezogenen Daten.
-            </p>
-          </section>
+<section>
+  <h2 className="text-2xl font-semibold text-white">
+    5. Hosting durch Netlify
+  </h2>
+
+  <p className="mt-4">
+    Diese Website wird über Netlify bereitgestellt. Anbieter ist Netlify, Inc.
+    Beim Aufruf der Website können technisch erforderliche Daten verarbeitet
+    werden, insbesondere IP-Adresse, Browserinformationen, Betriebssystem sowie
+    Datum und Uhrzeit des Zugriffs.
+  </p>
+
+  <p className="mt-4">
+    Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an
+    einer sicheren, stabilen und effizienten Bereitstellung unserer Website
+    gemäß Art. 6 Abs. 1 lit. f DSGVO.
+  </p>
+
+  <p className="mt-4">
+    Eine Verarbeitung von Daten außerhalb der Europäischen Union kann nicht
+    ausgeschlossen werden. Netlify verwendet für internationale
+    Datenübermittlungen geeignete Schutzmechanismen, darunter
+    Standardvertragsklauseln.
+  </p>
+</section>
+
+<section>
+  <h2 className="text-2xl font-semibold text-white">
+    6. Speicherdauer
+  </h2>
+
+  <p className="mt-4">
+    Personenbezogene Daten werden nur so lange gespeichert, wie dies für die
+    Bearbeitung deiner Anfrage erforderlich ist. Eine längere Speicherung kann
+    erfolgen, wenn gesetzliche Aufbewahrungspflichten bestehen.
+  </p>
+</section>
   
-          <section>
-            <h2 className="text-2xl font-semibold text-white">
-              6. Hinweis
-            </h2>
-            <p className="mt-4">
-              Diese Datenschutzerklärung ist eine erste Vorlage und sollte vor dem
-              Livegang rechtlich geprüft oder mit einem DSGVO-Generator angepasst
-              werden.
-            </p>
-          </section>
+<section>
+  <h2 className="text-2xl font-semibold text-white">
+    7. Deine Rechte
+  </h2>
+
+  <p className="mt-4">
+    Du hast im Rahmen der gesetzlichen Voraussetzungen insbesondere das Recht
+    auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
+    Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung deiner
+    personenbezogenen Daten.
+  </p>
+
+  <p className="mt-4">
+    Außerdem hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu
+    beschweren, wenn du der Ansicht bist, dass die Verarbeitung deiner
+    personenbezogenen Daten gegen die DSGVO verstößt.
+  </p>
+</section>
         </div>
       </main>
     );

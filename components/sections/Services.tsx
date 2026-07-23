@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Bot,
   PackageSearch,
@@ -11,36 +12,42 @@ const services = [
   {
     icon: PackageSearch,
     title: "Product Automation",
+    href: "/services/product-automation",
     description:
       "Produkttexte, Meta-Titel, Meta-Beschreibungen, Alt-Texte und SEO-Daten automatisch optimieren und in Shopify speichern.",
   },
   {
     icon: Bot,
     title: "Customer Support Automation",
+    href: "/services/customer-support-automation",
     description:
       "Bestellstatus, Versandfragen, Retourenfragen, FAQ und Ticket-Kategorisierung automatisieren.",
   },
   {
     icon: RefreshCw,
     title: "Returns Automation",
+    href: "/services/returns-automation",
     description:
       "Retourenprozesse, Status-E-Mails, interne Benachrichtigungen und Rückgabeformulare automatisieren.",
   },
   {
     icon: Mail,
     title: "Email & SMS Automation",
+    href: "/services/email-sms-automation",
     description:
       "Warenkorbabbruch, Willkommensserie, Review-Anfragen und Winback-Kampagnen automatisieren.",
   },
   {
     icon: Plug,
     title: "System Integrations",
+    href: "/services/system-integrations",
     description:
       "Shopify mit CRM, ERP, Google Sheets, Slack, Klaviyo und individuellen APIs verbinden.",
   },
   {
     icon: Workflow,
     title: "Custom Workflows",
+    href: "/services/custom-workflows",
     description:
       "Individuelle Automatisierungen für spezielle E-Commerce-Prozesse entwickeln.",
   },
@@ -49,6 +56,7 @@ const services = [
 export default function Services() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-24">
+      <section id="leistungen" className="mx-auto max-w-7xl px-6 py-24"></section>
       <div className="mx-auto max-w-3xl text-center">
         <span className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 text-sm text-indigo-300">
           Leistungen
@@ -59,7 +67,7 @@ export default function Services() {
         </h2>
 
         <p className="mt-6 text-lg text-gray-400">
-          ZagFlow kombiniert eigene Software mit individuellen Services, damit
+          CodeSpes kombiniert eigene Software mit individuellen Services, damit
           dein Shop schneller, effizienter und skalierbarer arbeitet.
         </p>
       </div>
@@ -69,10 +77,11 @@ export default function Services() {
           const Icon = service.icon;
 
           return (
-            <div
-              key={service.title}
-              className="group rounded-3xl border border-white/10 bg-white/5 p-8 transition duration-300 hover:-translate-y-2 hover:border-indigo-500/50 hover:bg-white/10"
-            >
+            <Link
+  key={service.title}
+  href={service.href || "#"}
+  className="rounded-3xl border border-white/10 bg-white/5 p-8 transition hover:-translate-y-1 hover:border-indigo-500/50 hover:bg-white/10"
+>
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 transition group-hover:bg-indigo-500 group-hover:text-white">
                 <Icon size={28} />
               </div>
@@ -84,7 +93,7 @@ export default function Services() {
               <p className="mt-4 leading-7 text-gray-400">
                 {service.description}
               </p>
-            </div>
+            </Link>
           );
         })}
       </div>

@@ -10,7 +10,7 @@ const faqs = [
       "Die meisten Automatisierungen werden innerhalb von 7–14 Tagen umgesetzt. Größere Projekte planen wir individuell.",
   },
   {
-    question: "Arbeitet ZagFlow nur mit Shopify?",
+    question: "Arbeitet CodeSpes nur mit Shopify?",
     answer:
       "Unser Fokus liegt auf Shopify, wir integrieren aber auch Klaviyo, Slack, Google Sheets, ERP-, CRM- und weitere Systeme.",
   },
@@ -46,7 +46,7 @@ export default function Faq() {
         </h2>
 
         <p className="mt-6 text-lg text-gray-400">
-          Alles Wichtige rund um ZagFlow und unsere Automatisierungslösungen.
+          Alles Wichtige rund um CodeSpes und unsere Automatisierungslösungen.
         </p>
       </div>
 

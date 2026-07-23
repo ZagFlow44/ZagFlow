@@ -31,7 +31,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-400">
-            ZagFlow hilft Shopify- und E-Commerce-Unternehmen, Produktdaten,
+            CodeSpes hilft Shopify- und E-Commerce-Unternehmen, Produktdaten,
             Support, E-Mail-Marketing und interne Prozesse effizient zu
             automatisieren.
           </p>
@@ -50,9 +50,14 @@ export default function Hero() {
           </div>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button>Kostenloses Audit buchen</Button>
-            <Button variant="secondary">Plattform ansehen</Button>
-          </div>
+  <a href="/#kontakt">
+    <Button>Kostenloses Audit buchen</Button>
+  </a>
+
+  <a href="/#plattform">
+    <Button variant="secondary">Plattform ansehen</Button>
+  </a>
+</div>
         </motion.div>
 
         <motion.div
@@ -67,7 +72,7 @@ export default function Hero() {
             <div className="rounded-[1.5rem] border border-white/10 bg-[#0F172A] p-6">
               <div className="flex items-center justify-between border-b border-white/10 pb-5">
                 <div>
-                  <p className="text-sm text-gray-400">ZagFlow Plattform</p>
+                  <p className="text-sm text-gray-400">CodeSpes Plattform</p>
                   <h3 className="mt-1 text-xl font-bold text-white">
                     Commerce Kontrollzentrum
                   </h3>

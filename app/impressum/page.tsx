@@ -6,18 +6,19 @@ export default function Impressum() {
         <div className="mt-10 space-y-8 text-gray-300 leading-8">
   
           <section>
-            <h2 className="text-2xl font-semibold text-white">
-              Angaben gemäß § 5 TMG
-            </h2>
-  
+           
+          <h2 className="text-2xl font-semibold text-white">
+  Angaben gemäß § 5 DDG
+</h2>
+            
             <p className="mt-4">
-              ZagFlow
+              CodeSpes
               <br />
-              Inhaber: [Dein Vor- und Nachname]
+              Inhaberin: Elvin Ceyran
               <br />
-              [Straße + Hausnummer]
+              Aufsicht 5
               <br />
-              [PLZ] [Ort]
+              58256 Ennepetal
               <br />
               Deutschland
             </p>
@@ -29,24 +30,22 @@ export default function Impressum() {
             </h2>
   
             <p className="mt-4">
-              E-Mail: kontakt@zagflow.de
+              E-Mail: codespes44@gmail.com
               <br />
-              Telefon: [Telefonnummer]
-            </p>
-          </section>
+              </p>
+            </section>
   
           <section>
-            <h2 className="text-2xl font-semibold text-white">
-              Umsatzsteuer
-            </h2>
-  
-            <p className="mt-4">
-              Umsatzsteuer-Identifikationsnummer gemäß §27a
-              Umsatzsteuergesetz:
-              <br />
-              Wird nach Eintragung ergänzt.
-            </p>
-          </section>
+  <h2 className="text-2xl font-semibold text-white">
+    Umsatzsteuer
+  </h2>
+
+  <p className="mt-4">
+    Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:
+    <br />
+    Wird ergänzt, sofern eine Umsatzsteuer-Identifikationsnummer vergeben wurde.
+  </p>
+</section>
   
           <section>
             <h2 className="text-2xl font-semibold text-white">
@@ -54,9 +53,9 @@ export default function Impressum() {
             </h2>
   
             <p className="mt-4">
-              [Dein Vor- und Nachname]
+              Elvin Ceyran
               <br />
-              [Adresse]
+              Aufsicht 5
             </p>
           </section>
   

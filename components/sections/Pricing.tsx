@@ -11,6 +11,7 @@ const plans = [
         "Konkreter Maßnahmenplan",
       ],
       cta: "Audit buchen",
+      href: "/#kontakt",
     },
     {
       name: "Automation Sprint",
@@ -24,6 +25,7 @@ const plans = [
         "Dokumentation & Übergabe",
       ],
       cta: "Projekt anfragen",
+      href: "/#kontakt",
       highlighted: true,
     },
     {
@@ -38,12 +40,13 @@ const plans = [
         "Priorisierter Support",
       ],
       cta: "Termin buchen",
+      href: "/#kontakt",
     },
   ];
   
   export default function Pricing() {
     return (
-      <section className="mx-auto max-w-7xl px-6 py-24">
+      <section id="preise" className="mx-auto max-w-7xl px-6 py-24">
         <div className="mx-auto max-w-3xl text-center">
           <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-sm text-cyan-300">
             Preise
@@ -55,7 +58,7 @@ const plans = [
   
           <p className="mt-6 text-lg text-gray-400">
             Ob kostenloses Audit, schneller Sprint oder langfristige Betreuung —
-            ZagFlow passt sich an die aktuelle Phase deines Shops an.
+            CodeSpes passt sich an die aktuelle Phase deines Shops an.
           </p>
         </div>
   
@@ -81,15 +84,16 @@ const plans = [
                 ))}
               </ul>
   
-              <button
-                className={
-                  plan.highlighted
-                    ? "mt-8 w-full rounded-xl bg-indigo-600 px-6 py-3 font-semibold text-white hover:bg-indigo-500"
-                    : "mt-8 w-full rounded-xl border border-white/20 px-6 py-3 font-semibold text-white hover:bg-white/10"
-                }
-              >
-                {plan.cta}
-              </button>
+              <a
+  href={plan.href}
+  className={
+    plan.highlighted
+      ? "mt-8 block w-full rounded-xl bg-indigo-600 px-6 py-3 text-center font-semibold text-white transition hover:bg-indigo-500"
+      : "mt-8 block w-full rounded-xl border border-white/20 px-6 py-3 text-center text-white transition hover:bg-white/5"
+  }
+>
+  {plan.cta}
+</a>
             </div>
           ))}
         </div>

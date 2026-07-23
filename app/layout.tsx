@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "ZagFlow | KI-Automatisierung für Shopify & E-Commerce",
-    template: "%s | ZagFlow",
+    default: "CodeSpes | KI-Automatisierung für Shopify & E-Commerce",
+    template: "%s | CodeSpes",
   },
 
   description:
-    "ZagFlow automatisiert Shopify- und E-Commerce-Prozesse mit KI. Spare Zeit, optimiere Produktdaten und skaliere dein Unternehmen mit intelligenten Workflows.",
+    "CodeSpes automatisiert Shopify- und E-Commerce-Prozesse mit KI. Spare Zeit, optimiere Produktdaten und skaliere dein Unternehmen mit intelligenten Workflows.",
 
   keywords: [
     "Shopify",
@@ -31,21 +31,21 @@ export const metadata: Metadata = {
     "SEO",
     "Produktoptimierung",
     "Shopify SEO",
-    "ZagFlow",
+    "CodeSpes",
   ],
 
-  authors: [{ name: "ZagFlow" }],
+  authors: [{ name: "CodeSpes" }],
 
-  creator: "ZagFlow",
+  creator: "CodeSpes",
 
-  metadataBase: new URL("https://zagflow.de"),
+  metadataBase: new URL("https://quiet-salmiakki-25f200.netlify.app"),
 
   openGraph: {
-    title: "ZagFlow",
+    title: "CodeSpes",
     description:
       "KI-Automatisierung für Shopify- und E-Commerce-Unternehmen.",
-    url: "https://zagflow.de",
-    siteName: "ZagFlow",
+      url: "https://quiet-salmiakki-25f200.netlify.app",
+    siteName: "CodeSpes",
     locale: "de_DE",
     type: "website",
   },

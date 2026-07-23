@@ -18,6 +18,7 @@ export default function Contact() {
       company: formData.get("company"),
       email: formData.get("email"),
       website: formData.get("website"),
+      service: formData.get("service"),
       message: formData.get("message"),
     };
 
@@ -93,6 +94,31 @@ export default function Contact() {
               <input name="website" type="text" placeholder="https://deinshop.de" className="w-full bg-transparent p-4 text-white outline-none" />
             </div>
           </div>
+
+          <div>
+  <label className="mb-2 block text-sm text-gray-300">
+    Gewünschte Leistung
+  </label>
+
+  <select
+    name="service"
+    required
+    defaultValue=""
+    className="w-full rounded-xl border border-white/10 bg-[#0F172A] p-4 text-white outline-none"
+  >
+    <option value="" disabled>
+      Bitte auswählen
+    </option>
+    <option value="Product Automation">Product Automation</option>
+    <option value="Customer Support Automation">
+      Customer Support Automation
+    </option>
+    <option value="Returns Automation">Returns Automation</option>
+    <option value="Email & SMS Automation">Email & SMS Automation</option>
+    <option value="System Integrations">System Integrations</option>
+    <option value="Custom Workflows">Custom Workflows</option>
+  </select>
+</div>
 
           <div>
             <label className="mb-2 block text-sm text-gray-300">Nachricht</label>

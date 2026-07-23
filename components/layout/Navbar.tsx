@@ -5,7 +5,13 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import Button from "../ui/Button";
 
-const navItems = ["Plattform", "Lösungen", "Leistungen", "Preise", "Kontakt"];
+const navItems = [
+  { label: "Plattform", href: "/#plattform" },
+  { label: "Lösungen", href: "/#loesungen" },
+  { label: "Leistungen", href: "/#leistungen" },
+  { label: "Preise", href: "/#preise" },
+  { label: "Kontakt", href: "/#kontakt" },
+];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,10 +32,10 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 md:px-6">
-        <a href="#" className="flex items-center">
+      <a href="/" className="flex items-center">
           <Image
-            src="/logo.png"
-            alt="ZagFlow Logo"
+            src="/codespes-logo.png"
+            alt="CodeSpes Logo"
             width={180}
             height={60}
             className="h-10 w-auto max-w-[130px] object-contain md:h-12 md:max-w-none"
@@ -38,16 +44,20 @@ export default function Navbar() {
         </a>
 
         <nav className="hidden items-center gap-8 text-sm font-medium text-gray-300 md:flex">
-          {navItems.map((item) => (
-            <a key={item} href="#" className="transition hover:text-white">
-              {item}
-            </a>
-          ))}
+        {navItems.map((item) => (
+  <a
+    key={item.label}
+    href={item.href}
+    className="transition hover:text-white"
+  >
+    {item.label}
+  </a>
+))}
         </nav>
 
-        <div className="hidden md:block">
-          <Button>Audit buchen</Button>
-        </div>
+        <a href="/#kontakt">
+  <Button>Audit buchen</Button>
+</a>
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
@@ -60,20 +70,24 @@ export default function Navbar() {
       {menuOpen && (
         <div className="border-t border-white/10 bg-[#050816]/95 px-6 py-6 backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-5 text-gray-300">
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href="#"
-                onClick={() => setMenuOpen(false)}
-                className="text-lg transition hover:text-white"
-              >
-                {item}
-              </a>
-            ))}
+          {navItems.map((item) => (
+  <a
+    key={item.label}
+    href={item.href}
+    onClick={() => setMenuOpen(false)}
+    className="text-lg transition hover:text-white"
+  >
+    {item.label}
+  </a>
+))}
 
-            <button className="mt-4 rounded-xl bg-indigo-600 px-6 py-3 font-semibold text-white hover:bg-indigo-500">
-              Audit buchen
-            </button>
+<a
+  href="/#kontakt"
+  onClick={() => setMenuOpen(false)}
+  className="mt-4 rounded-xl bg-indigo-600 px-6 py-3 text-center font-semibold text-white hover:bg-indigo-500"
+>
+  Audit buchen
+</a>
           </div>
         </div>
       )}

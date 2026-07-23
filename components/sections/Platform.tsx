@@ -8,11 +8,11 @@ export default function Platform() {
     ];
   
     return (
-      <section className="mx-auto max-w-7xl px-6 py-24">
+      <section id="plattform" className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <div>
             <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-sm text-cyan-300">
-              ZagFlow Platform
+              CodeSpes Platform
             </span>
   
             <h2 className="mt-6 text-4xl font-bold tracking-tight text-white md:text-6xl">
