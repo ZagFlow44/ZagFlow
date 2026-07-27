@@ -55,8 +55,10 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <section id="leistungen" className="mx-auto max-w-7xl px-6 py-24"></section>
+    <section
+  id="leistungen"
+  className="mx-auto max-w-7xl px-6 py-24"
+>
       <div className="mx-auto max-w-3xl text-center">
         <span className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 text-sm text-indigo-300">
           Leistungen
@@ -67,8 +69,9 @@ export default function Services() {
         </h2>
 
         <p className="mt-6 text-lg text-gray-400">
-          CodeSpes kombiniert eigene Software mit individuellen Services, damit
-          dein Shop schneller, effizienter und skalierbarer arbeitet.
+        CodeSpes entwickelt individuelle Automatisierungen und verbindet deine
+bestehenden Tools, damit dein E-Commerce-Betrieb effizienter und
+skalierbarer arbeitet.
         </p>
       </div>
 

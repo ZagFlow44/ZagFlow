@@ -1,7 +1,11 @@
 import Link from "next/link";
+import Navbar from "@/components/layout/Navbar";
 
 export default function ReturnsAutomationPage() {
   return (
+    <>
+    <Navbar />
+    
     <main className="min-h-screen bg-[#050816] text-white">
       <section className="mx-auto max-w-7xl px-6 pb-24 pt-32">
         <div className="max-w-3xl">
@@ -14,10 +18,10 @@ export default function ReturnsAutomationPage() {
           </h1>
 
           <p className="mt-6 text-lg leading-8 text-gray-400">
-            Wir helfen E-Commerce-Unternehmen dabei, Retourenanfragen schneller
-            zu bearbeiten, Kunden automatisch zu informieren und interne Abläufe
-            effizienter zu gestalten.
-          </p>
+  CodeSpes automatisiert wiederkehrende Schritte im Retourenprozess,
+  informiert Kunden automatisch über den Status und verbindet deinen Shop
+  mit E-Mail- und internen Systemen.
+</p>
 
           <div className="mt-10">
             <Link
@@ -68,8 +72,8 @@ export default function ReturnsAutomationPage() {
             },
             {
               number: "02",
-              title: "Planung",
-              text: "Wir definieren die Schritte, die automatisiert werden können.",
+              title: "Automation Blueprint",
+              text: "Wir definieren, welche Schritte im Retourenprozess automatisiert werden, welche Systeme beteiligt sind und wie Sonderfälle behandelt werden.",
             },
             {
               number: "03",
@@ -123,5 +127,6 @@ export default function ReturnsAutomationPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

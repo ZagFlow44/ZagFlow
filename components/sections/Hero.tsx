@@ -23,17 +23,15 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <span className="inline-flex rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-2 text-xs text-indigo-300 md:px-4 md:text-sm">
-            Das Betriebssystem für moderne E-Commerce-Unternehmen
+            KI-Automatisierungen für Shopify & E-Commerce 
           </span>
 
           <h1 className="mt-8 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-7xl">
-            Automatisiere deinen E-Commerce-Betrieb.
+            Automatisiere wiederkehrende E-Commerce-Prozess mit KI.
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-400">
-            CodeSpes hilft Shopify- und E-Commerce-Unternehmen, Produktdaten,
-            Support, E-Mail-Marketing und interne Prozesse effizient zu
-            automatisieren.
+          CodeSpes hilft Shopify- und E-Commerce-Unternehmen, manuelle Aufgaben in Produktpflege, Support, E-Mail-Kommunikation und internen Abläufen zu automatisieren – damit dein Team Zeit spart und effizienter arbeiten kann.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3 text-sm text-gray-300">

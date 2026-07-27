@@ -1,7 +1,11 @@
 import Link from "next/link";
+import Navbar from "@/components/layout/Navbar";
 
 export default function SystemIntegrationsPage() {
   return (
+    <>
+    <Navbar />
+
     <main className="min-h-screen bg-[#050816] text-white">
       <section className="mx-auto max-w-7xl px-6 pb-24 pt-32">
         <div className="max-w-3xl">
@@ -14,10 +18,10 @@ export default function SystemIntegrationsPage() {
           </h1>
 
           <p className="mt-6 text-lg leading-8 text-gray-400">
-            Wir verbinden deine bestehenden Tools und Plattformen, damit Daten
-            automatisch zwischen deinen Systemen ausgetauscht werden und
-            manuelle Arbeit reduziert wird.
-          </p>
+  CodeSpes verbindet deine bestehenden Tools und Plattformen miteinander,
+  damit Daten automatisch zwischen deinen Systemen fließen und manuelle
+  Übertragungen reduziert werden.
+</p>
 
           <div className="mt-10">
             <Link
@@ -68,8 +72,8 @@ export default function SystemIntegrationsPage() {
             },
             {
               number: "02",
-              title: "Planung",
-              text: "Wir definieren, welche Systeme miteinander verbunden werden.",
+              title: "Automation Blueprint",
+              text: "Wir definieren, welche Systeme verbunden werden, welche Daten ausgetauscht werden und wie der technische Ablauf aufgebaut ist.",
             },
             {
               number: "03",
@@ -123,5 +127,6 @@ export default function SystemIntegrationsPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

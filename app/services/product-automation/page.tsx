@@ -1,7 +1,11 @@
 import Link from "next/link";
+import Navbar from "@/components/layout/Navbar";
 
 export default function ProductAutomationPage() {
   return (
+    <>
+    <Navbar />
+
     <main className="min-h-screen bg-[#050816] text-white">
       <section className="mx-auto max-w-7xl px-6 pb-24 pt-32">
         <div className="max-w-3xl">
@@ -14,10 +18,10 @@ export default function ProductAutomationPage() {
           </h1>
 
           <p className="mt-6 text-lg leading-8 text-gray-400">
-            Wir helfen E-Commerce-Unternehmen dabei, wiederkehrende Aufgaben rund
-            um Produktdaten, Beschreibungen, SEO und Systempflege zu
-            automatisieren.
-          </p>
+  CodeSpes automatisiert wiederkehrende Aufgaben rund um Produktdaten,
+  Beschreibungen, SEO und Systempflege und verbindet die benötigten
+  Tools direkt miteinander.
+</p>
 
           <div className="mt-10">
             <Link
@@ -72,8 +76,8 @@ export default function ProductAutomationPage() {
             },
             {
               number: "02",
-              title: "Planung",
-              text: "Wir entwickeln den passenden Automatisierungs-Workflow.",
+              title: "Automation Blueprint",
+              text: "Wir definieren den technischen Ablauf, die benötigten Systeme und die wichtigsten Automatisierungsschritte.",
             },
             {
               number: "03",
@@ -127,5 +131,6 @@ export default function ProductAutomationPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

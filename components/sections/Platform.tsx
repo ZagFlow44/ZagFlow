@@ -1,27 +1,27 @@
 export default function Platform() {
-    const features = [
-      "AI Product Descriptions",
-      "Meta Titles",
-      "Meta Descriptions",
-      "Alt Text Generation",
-      "Shopify Sync",
-    ];
+  const features = [
+    "KI-Produktbeschreibungen",
+    "Meta-Titel",
+    "Meta-Beschreibungen",
+    "Alt-Texte für Produktbilder",
+    "Shopify-Integration",
+  ];
   
     return (
       <section id="plattform" className="mx-auto max-w-7xl px-6 py-24">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <div>
             <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-sm text-cyan-300">
-              CodeSpes Platform
+              Product Automation
             </span>
   
             <h2 className="mt-6 text-4xl font-bold tracking-tight text-white md:text-6xl">
-              Product SEO automation built for Shopify.
+              Produktdaten und SEO automatisch optimieren.
             </h2>
   
             <p className="mt-6 text-lg leading-8 text-gray-400">
-              Optimize product content, generate SEO metadata and sync everything
-              directly back into your Shopify store.
+              CodeSpes automatisiert wiederkehrende Aufgaben rund um Produktdaten,
+              SEO-Texte und Metadaten und kann die Ergebnisse direkt mit deinem Shopify-Shop verbinden.
             </p>
   
             <div className="mt-8 grid gap-4">

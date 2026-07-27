@@ -1,7 +1,11 @@
 import Link from "next/link";
+import Navbar from "@/components/layout/Navbar";
 
 export default function EmailSmsAutomationPage() {
   return (
+    <>
+    <Navbar />
+
     <main className="min-h-screen bg-[#050816] text-white">
       <section className="mx-auto max-w-7xl px-6 pb-24 pt-32">
         <div className="max-w-3xl">
@@ -14,9 +18,10 @@ export default function EmailSmsAutomationPage() {
           </h1>
 
           <p className="mt-6 text-lg leading-8 text-gray-400">
-            Wir automatisieren wiederkehrende E-Mails, SMS und Benachrichtigungen,
-            damit deine Kunden zur richtigen Zeit die richtige Nachricht erhalten.
-          </p>
+  CodeSpes automatisiert wiederkehrende E-Mails, SMS und Benachrichtigungen
+  und verbindet sie mit deinen bestehenden Shop- und Kundensystemen.
+  So erhalten Kunden automatisch die passende Nachricht zum richtigen Zeitpunkt.
+</p>
 
           <div className="mt-10">
             <Link
@@ -67,8 +72,8 @@ export default function EmailSmsAutomationPage() {
             },
             {
               number: "02",
-              title: "Planung",
-              text: "Wir definieren, welche Nachrichten automatisiert werden.",
+              title: "Automation Blueprint",
+              text: "Wir definieren, welche Nachrichten automatisiert werden, welche Auslöser sie starten und welche Systeme miteinander verbunden werden.",
             },
             {
               number: "03",
@@ -122,5 +127,6 @@ export default function EmailSmsAutomationPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

@@ -1,7 +1,11 @@
 import Link from "next/link";
+import Navbar from "@/components/layout/Navbar";
 
 export default function CustomerSupportAutomationPage() {
   return (
+    <>
+    <Navbar />
+    
     <main className="min-h-screen bg-[#050816] text-white">
       <section className="mx-auto max-w-7xl px-6 pb-24 pt-32">
         <div className="max-w-3xl">
@@ -14,10 +18,11 @@ export default function CustomerSupportAutomationPage() {
           </h1>
 
           <p className="mt-6 text-lg leading-8 text-gray-400">
-            Wir helfen Unternehmen dabei, wiederkehrende Kundenanfragen schneller
-            und effizienter zu bearbeiten – mit intelligenten Workflows,
-            Automatisierungen und KI-gestützten Antworten.
-          </p>
+  CodeSpes automatisiert wiederkehrende Support-Anfragen, kategorisiert
+  Tickets und verbindet Kundensupport mit deinen bestehenden Systemen.
+  So kann dein Team einfache Anfragen schneller bearbeiten und sich auf
+  komplexere Kundenprobleme konzentrieren.
+</p>
 
           <div className="mt-10">
             <Link
@@ -68,8 +73,8 @@ export default function CustomerSupportAutomationPage() {
             },
             {
               number: "02",
-              title: "Planung",
-              text: "Wir definieren, welche Anfragen automatisiert werden können.",
+              title: "Automation Blueprint",
+              text: "Wir definieren, welche Support-Anfragen automatisiert werden können, welche Systeme benötigt werden und wann eine Anfrage an einen Mitarbeiter übergeben wird.",
             },
             {
               number: "03",
@@ -123,5 +128,6 @@ export default function CustomerSupportAutomationPage() {
         </div>
       </section>
     </main>
+    </>
   );
 }

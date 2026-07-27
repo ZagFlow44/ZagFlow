@@ -46,12 +46,12 @@ export default function Home() {
       {
         number: "02",
         title: "Analyse",
-        text: "Wir analysieren deinen aktuellen Ablauf, deine Systeme und mögliche Zeitfresser.",
+        text: "Wir analysieren deinen aktuellen Prozesse, eingesetzten Tools und wiederkehrenden Aufgaben und identifizieren die größten Automatisierungspotenziale.",
       },
       {
         number: "03",
-        title: "Konzept",
-        text: "Wir planen eine passende Automatisierung und definieren den technischen Ablauf.",
+        title: "Automation Blueprint",
+        text: "Wir erstellen einen klaren Automatisierungsplan mit den priorisierten Prozessen, benötigten Systemen und dem geplanten technischen Ablauf.",
       },
       {
         number: "04",

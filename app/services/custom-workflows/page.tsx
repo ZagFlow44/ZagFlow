@@ -18,10 +18,10 @@ export default function CustomWorkflowsPage() {
           </h1>
 
           <p className="mt-6 text-lg leading-8 text-gray-400">
-            Nicht jeder Geschäftsprozess passt in eine Standardlösung.
-            Wir entwickeln individuelle Automatisierungs-Workflows,
-            die auf deine Prozesse, Systeme und Anforderungen zugeschnitten sind.
-          </p>
+  Nicht jeder Geschäftsprozess passt in eine Standardlösung.
+  CodeSpes entwickelt individuelle Automatisierungs-Workflows,
+  die auf deine Prozesse, Systeme und Anforderungen zugeschnitten sind.
+</p>
 
           <div className="mt-10">
             <Link
@@ -72,8 +72,8 @@ export default function CustomWorkflowsPage() {
             },
             {
               number: "02",
-              title: "Konzept",
-              text: "Wir entwickeln eine individuelle Lösung für deinen Anwendungsfall.",
+              title: "Automation Blueprint",
+              text: "Wir definieren den technischen Ablauf, die benötigten Systeme und die einzelnen Automatisierungsschritte für deinen Anwendungsfall.",
             },
             {
               number: "03",

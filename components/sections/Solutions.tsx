@@ -1,30 +1,30 @@
 export default function Solutions() {
-    const solutions = [
-      {
-        title: "Weniger manuelle Arbeit",
-        text: "Wiederkehrende Aufgaben werden automatisiert, damit dein Team mehr Zeit für wichtige Aufgaben hat.",
-      },
-      {
-        title: "Schnellere Kundenkommunikation",
-        text: "E-Mails, Support-Anfragen und Benachrichtigungen können automatisch verarbeitet und beantwortet werden.",
-      },
-      {
-        title: "Besser verbundene Systeme",
-        text: "Shop, CRM, E-Mail, Tabellen und andere Tools werden miteinander verbunden und tauschen Daten automatisch aus.",
-      },
-      {
-        title: "Mehr Übersicht",
-        text: "Automatisierte Prozesse sorgen für klarere Abläufe, weniger Fehler und besser nachvollziehbare Daten.",
-      },
-      {
-        title: "Skalierbare Prozesse",
-        text: "Deine Abläufe wachsen mit deinem Unternehmen, ohne dass jede neue Aufgabe zusätzliche manuelle Arbeit verursacht.",
-      },
-      {
-        title: "Individuelle Automatisierungen",
-        text: "Wir entwickeln Workflows, die genau zu deinen bestehenden Prozessen und Systemen passen.",
-      },
-    ];
+  const solutions = [
+    {
+      title: "Produktdaten automatisch pflegen",
+      text: "Produktbeschreibungen, Meta-Titel, Meta-Beschreibungen und Alt-Texte können automatisch erstellt und aktualisiert werden.",
+    },
+    {
+      title: "Support-Anfragen schneller bearbeiten",
+      text: "Wiederkehrende Kundenfragen zu Bestellungen, Versand, Retouren oder Produkten können automatisch vorsortiert und beantwortet werden.",
+    },
+    {
+      title: "E-Mail-Prozesse automatisieren",
+      text: "Willkommens-Mails, Follow-ups, Erinnerungen und andere wiederkehrende E-Mail-Abläufe können automatisch ausgelöst werden.",
+    },
+    {
+      title: "Shop und Tools verbinden",
+      text: "Shopify, E-Mail, CRM, Tabellen und weitere Systeme können miteinander verbunden werden, damit Daten automatisch weitergegeben werden.",
+    },
+    {
+      title: "Manuelle Abläufe reduzieren",
+      text: "Wiederkehrende Aufgaben werden automatisiert, damit dein Team weniger Zeit mit Copy-Paste, Dateneingabe und Routinearbeit verbringt.",
+    },
+    {
+      title: "Individuelle Workflows entwickeln",
+      text: "Wir bauen Automatisierungen passend zu deinen bestehenden Prozessen, Tools und Anforderungen.",
+    },
+  ];
   
     return (
       <section id="loesungen" className="mx-auto max-w-7xl px-6 py-24">
@@ -34,7 +34,7 @@ export default function Solutions() {
           </span>
   
           <h2 className="mt-6 text-4xl font-bold text-white md:text-6xl">
-            Automatisierung für deine täglichen Geschäftsprozesse.
+            Weniger Routinearbeit. Mehr automatisierte Abläufe. 
           </h2>
   
           <p className="mt-6 text-lg text-gray-400">
