@@ -1,0 +1,695 @@
+{
+  "name": "CodeSpes-AI Customer Support Starter",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "c1365bea-e3d3-41cd-be3e-d2ef39fa96fd",
+      "name": "01 - Gmail: Neue Support-Mail",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7GToDmXa7vnfNRZJ",
+          "name": "Gmail Support Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1ebeeedb-7eb7-420e-9a1b-48b97102ec32",
+              "name": "reply",
+              "value": "={{ JSON.parse($json.choices[0].message.content).reply }}",
+              "type": "string"
+            },
+            {
+              "id": "31afaf74-daa0-4edd-9418-9f0bcfd93887",
+              "name": "category",
+              "value": "={{ JSON.parse($json.choices[0].message.content).category }}",
+              "type": "string"
+            },
+            {
+              "id": "33550825-82a6-45a4-b81e-1a0b88370169",
+              "name": "priority",
+              "value": "={{ JSON.parse($json.choices[0].message.content).priority }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        624,
+        0
+      ],
+      "id": "aa41047f-bca6-4d8c-bf4f-92c056d83bf5",
+      "name": "04 - Antwort auswerten"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json "
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"openai/gpt-oss-20b\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Du bist ein professioneller Kundenservice-Assistent für einen Onlineshop. Unternehmensinformationen: Shopname: {{ $json.shopName }}. Lieferzeit: {{ $json.deliveryTime }}. Rückgabefrist: {{ $json.returnPeriod }}. Versandkosten: {{ $json.shippingCost }}. Kostenloser Versand ab: {{ $json.freeShippingFrom }}. Kontaktadresse: {{ $json.supportEmail }}. Ordne die Kundenanfrage genau einer Kategorie zu: BESTELLSTATUS, VERSAND, RETOURE, PRODUKTFRAGE, BESCHWERDE oder ALLGEMEIN. Fragen zu Versandkosten, kostenlosem Versand, Lieferzeiten, Versandarten oder Sendungsverfolgung gehören immer zur Kategorie VERSAND. Vergib zusätzlich eine Priorität: NORMAL oder HOCH. Beschwerden, Zahlungsprobleme, Drohungen, rechtliche Ankündigungen oder stark verärgerte Kunden erhalten die Priorität HOCH. Alle anderen Anfragen erhalten NORMAL. Verwende ausschließlich die Unternehmensinformationen. Erfinde keine Angaben und verwende keine Platzhalter. Bei Fragen zum Bestellstatus hast du keinen Zugriff auf Shopify, das Shopsystem oder eine Sendungsverfolgung. Behaupte deshalb niemals, dass du eine Bestellung oder den Versandstatus überprüft hast. Verweise den Kunden nicht direkt an einen Versanddienstleister, wenn keine Sendungsnummer oder kein Versanddienstleister bekannt ist. Teile freundlich mit, dass die Bestellung manuell geprüft wird, und bitte bei fehlender Bestellnummer um die Bestellnummer und die beim Kauf verwendete E-Mail-Adresse. Ist die Bestellnummer bereits vorhanden, bestätige nur den Erhalt der Angaben und erkläre, dass das Support-Team den Status prüft. Wenn der Name unbekannt ist, beginne mit 'Guten Tag,'. Schreibe keinen Betreff in den Antworttext. Antworte ausschließlich als gültiges JSON ohne Markdown. Format: {\\\"category\\\":\\\"KATEGORIE\\\",\\\"priority\\\":\\\"NORMAL oder HOCH\\\",\\\"reply\\\":\\\"Antworttext\\\"}.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Betreff: {{ $json.subject }} | Kunden-E-Mail: {{ $json.snippet }}\"\n    }\n  ],\n  \"temperature\": 0.2\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "f1838ee7-aa85-4c82-abd2-26c929c9d3fb",
+      "name": "03 - Groq: Support-Antwort",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "Ktb8QeIkBM8KOTqH",
+          "name": "Groq API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.category }}",
+                    "rightValue": "VERSAND",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "f26367f9-ae0e-44ab-8556-7e050ffbd92d"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "1f8e87ce-211e-4542-89c2-4c28051a6c42",
+                    "leftValue": "={{ $json.category }}",
+                    "rightValue": "RETOURE",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "36793d2f-074f-482f-a9f2-c897eae3a9c1",
+                    "leftValue": "={{ $json.category }}",
+                    "rightValue": "BESTELLSTATUS",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "9675faaf-349c-4aad-9eca-1258113118e6",
+                    "leftValue": "={{ $json.category }}",
+                    "rightValue": "PRODUKTFRAGE",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8d53e227-2f3f-4ae5-8c45-70ee51c1f6fd",
+                    "leftValue": "={{ $json.category }}",
+                    "rightValue": "BESCHWERDE",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8dcff1df-bb62-4b13-b993-95154e8b6a47",
+                    "leftValue": "={{ $json.category }}",
+                    "rightValue": "ALLGEMEIN",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        832,
+        0
+      ],
+      "id": "611e294c-6fc5-40fe-9dbc-a560ea5f5169",
+      "name": "05 - Kategorie verteilen"
+    },
+    {
+      "parameters": {
+        "resource": "draft",
+        "subject": "=[{{ $json.category }}] Re: {{ $('01 - Gmail: Neue Support-Mail').item.json.subject }}",
+        "message": "={{ $json.reply }}",
+        "options": {
+          "sendTo": "={{ $('01 - Gmail: Neue Support-Mail').item.json.From }}"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        960,
+        -192
+      ],
+      "id": "71cc46e8-ae79-4246-924b-13286038d19d",
+      "name": "06 - Entwurf erstellen ",
+      "webhookId": "bbf98c18-e965-4c0e-88a3-65f30c0d8524",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7GToDmXa7vnfNRZJ",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "3ef1a3c7-a5d6-41dc-90e9-f8dff9fd9603",
+              "leftValue": "={{ $json.priority }}",
+              "rightValue": "HOCH",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        736,
+        272
+      ],
+      "id": "8dd3ae27-6a7e-4302-b128-3ee087a3b259",
+      "name": "07 - Priorität prufen"
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('01 - Gmail: Neue Support-Mail').item.json.id }}",
+        "labelIds": [
+          "Label_1"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1296,
+        -208
+      ],
+      "id": "92982081-4a56-4961-969c-9cb8faade042",
+      "name": "Label - Versand",
+      "webhookId": "254b82d6-f639-4aa8-9a01-fcd0751455b3",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7GToDmXa7vnfNRZJ",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('01 - Gmail: Neue Support-Mail').item.json.id }}",
+        "labelIds": [
+          "Label_2"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1296,
+        -48
+      ],
+      "id": "d16d867e-87d9-4655-bac8-711e1523de91",
+      "name": "Label - Retoure",
+      "webhookId": "254b82d6-f639-4aa8-9a01-fcd0751455b3",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7GToDmXa7vnfNRZJ",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('01 - Gmail: Neue Support-Mail').item.json.id }}",
+        "labelIds": [
+          "Label_3"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1296,
+        64
+      ],
+      "id": "15d0a994-485a-4f80-911e-13631345ba82",
+      "name": "Label - Bestellstatus",
+      "webhookId": "254b82d6-f639-4aa8-9a01-fcd0751455b3",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7GToDmXa7vnfNRZJ",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('01 - Gmail: Neue Support-Mail').item.json.id }}",
+        "labelIds": [
+          "Label_4"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1296,
+        176
+      ],
+      "id": "ad2a2e94-7f6b-4670-9482-9aee342809ad",
+      "name": "Label - Produktfrage",
+      "webhookId": "254b82d6-f639-4aa8-9a01-fcd0751455b3",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7GToDmXa7vnfNRZJ",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('01 - Gmail: Neue Support-Mail').item.json.id }}",
+        "labelIds": [
+          "Label_5"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1312,
+        288
+      ],
+      "id": "c20febb5-8269-4aec-b733-62be81a60fda",
+      "name": "Label - Beschwerde",
+      "webhookId": "254b82d6-f639-4aa8-9a01-fcd0751455b3",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7GToDmXa7vnfNRZJ",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('01 - Gmail: Neue Support-Mail').item.json.id }}",
+        "labelIds": [
+          "Label_6"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1328,
+        384
+      ],
+      "id": "a50be342-909c-4744-a361-9d8348d8a4b6",
+      "name": "Label - Allgemein",
+      "webhookId": "254b82d6-f639-4aa8-9a01-fcd0751455b3",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7GToDmXa7vnfNRZJ",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('01 - Gmail: Neue Support-Mail').item.json.id }}",
+        "labelIds": [
+          "Label_7"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        1040,
+        400
+      ],
+      "id": "546ad9b3-915a-420b-bee2-50408a44a824",
+      "name": "Label - Dringend",
+      "webhookId": "6cabb6bd-68f4-4859-ab36-3eba7e47c0ec",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7GToDmXa7vnfNRZJ",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "de30a230-0c18-4e8e-9248-d40553f5d1b3",
+              "name": "shopName",
+              "value": "Beispiel Shop",
+              "type": "string"
+            },
+            {
+              "id": "f7574a62-2d25-4068-97a5-0ae222386a93",
+              "name": "deliveryTime",
+              "value": "3 bis 5 Werktage",
+              "type": "string"
+            },
+            {
+              "id": "5d0061d1-31e1-4b4c-93bb-3ba20c3f3482",
+              "name": "returnPeriod",
+              "value": "14 Tage nach Erhalt der Bestellung ",
+              "type": "string"
+            },
+            {
+              "id": "9689304f-d40c-43b8-bea3-55a2f14823f0",
+              "name": "shippingCost",
+              "value": "4,99 Euro",
+              "type": "string"
+            },
+            {
+              "id": "de914d4f-e069-4716-9554-4f68652ce138",
+              "name": "freeShippingFrom",
+              "value": "50 Euro",
+              "type": "string"
+            },
+            {
+              "id": "5f112527-be01-4004-b511-cf667294518b",
+              "name": "supportEmail",
+              "value": "support@beispielshop.de",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "66d3a125-b734-490e-b348-ef85d1fb6c88",
+      "name": "02 - Shopdaten - HIER ANPASSEN"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "01 - Gmail: Neue Support-Mail": {
+      "main": [
+        [
+          {
+            "node": "02 - Shopdaten - HIER ANPASSEN",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "04 - Antwort auswerten": {
+      "main": [
+        [
+          {
+            "node": "05 - Kategorie verteilen",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "06 - Entwurf erstellen ",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "07 - Priorität prufen",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "03 - Groq: Support-Antwort": {
+      "main": [
+        [
+          {
+            "node": "04 - Antwort auswerten",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "05 - Kategorie verteilen": {
+      "main": [
+        [
+          {
+            "node": "Label - Versand",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Label - Retoure",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Label - Bestellstatus",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Label - Produktfrage",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Label - Beschwerde",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Label - Allgemein",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "07 - Priorität prufen": {
+      "main": [
+        [
+          {
+            "node": "Label - Dringend",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Label - Versand": {
+      "main": [
+        []
+      ]
+    },
+    "Label - Retoure": {
+      "main": [
+        []
+      ]
+    },
+    "Label - Bestellstatus": {
+      "main": [
+        []
+      ]
+    },
+    "Label - Produktfrage": {
+      "main": [
+        []
+      ]
+    },
+    "Label - Allgemein": {
+      "main": [
+        []
+      ]
+    },
+    "Label - Dringend": {
+      "main": [
+        []
+      ]
+    },
+    "02 - Shopdaten - HIER ANPASSEN": {
+      "main": [
+        [
+          {
+            "node": "03 - Groq: Support-Antwort",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "f4d3ca58-376a-4c55-b21f-c64400663f40",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2e2c989a10a7417c29343e1854ce0bfe02f075c48ce52b2008e97d54d3545e65"
+  },
+  "nodeGroups": [],
+  "id": "oSMIBKeOMo0H8Enr",
+  "tags": []
+}
