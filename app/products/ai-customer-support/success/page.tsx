@@ -93,12 +93,27 @@ export default async function SuccessPage({
   </a>
 </div>
 
-          <p className="mt-4 text-gray-400">
-            Im nächsten Schritt stellen wir hier den geschützten Download
-            für den Workflow und den Setup Guide bereit.
-          </p>
-        </div>
-      </section>
+<div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-left">
+  <p className="text-sm font-semibold text-white">
+    Hinweis zur sofortigen Bereitstellung
+  </p>
+
+  <p className="mt-3 text-sm leading-6 text-gray-400">
+    Du hast ausdrücklich zugestimmt, dass CodeSpes vor Ablauf der
+    Widerrufsfrist mit der Bereitstellung der digitalen Inhalte beginnt.
+    Du hast außerdem bestätigt, dass dir bekannt ist, dass du mit Beginn
+    der Vertragserfüllung dein Widerrufsrecht verlierst.
+  </p>
+
+  <Link
+    href="/widerruf"
+    className="mt-3 inline-flex text-sm text-indigo-300 underline transition hover:text-indigo-200"
+  >
+    Widerrufsbelehrung ansehen
+  </Link>
+</div>
+</div>
+</section>
     </main>
   );
 }

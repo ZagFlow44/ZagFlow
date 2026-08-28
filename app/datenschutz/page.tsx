@@ -95,9 +95,129 @@ export default function Datenschutz() {
   </p>
 </section>
 
+  <section>
+  <h2 className="text-2xl font-semibold text-white">
+    6. Zahlungsabwicklung über Stripe
+  </h2>
+
+  <p className="mt-4">
+    Für die Zahlungsabwicklung nutzen wir den Zahlungsdienstleister Stripe.
+    Anbieter ist Stripe Payments Europe, Limited.
+  </p>
+
+  <p className="mt-4">
+    Wenn du ein Produkt kaufst, werden die für die Zahlungsabwicklung
+    erforderlichen Daten an Stripe übermittelt. Dazu können insbesondere
+    Name, E-Mail-Adresse, Zahlungsinformationen, Rechnungsdaten,
+    Transaktionsdaten sowie technische Informationen gehören.
+  </p>
+
+  <p className="mt-4">
+    Die Verarbeitung erfolgt zur Durchführung des Vertrags und der
+    Zahlungsabwicklung gemäß Art. 6 Abs. 1 lit. b DSGVO sowie, soweit
+    erforderlich, zur Erfüllung gesetzlicher Verpflichtungen gemäß
+    Art. 6 Abs. 1 lit. c DSGVO.
+  </p>
+
+  <p className="mt-4">
+    Stripe kann personenbezogene Daten auch außerhalb der Europäischen Union
+    verarbeiten. Für solche Datenübermittlungen werden die jeweils
+    erforderlichen datenschutzrechtlichen Schutzmechanismen eingesetzt.
+  </p>
+</section>
+
+  <p className="mt-4">
+    Diese Website wird über Netlify bereitgestellt. Anbieter ist Netlify, Inc.
+    Beim Aufruf der Website können technisch erforderliche Daten verarbeitet
+    werden, insbesondere IP-Adresse, Browserinformationen, Betriebssystem sowie
+    Datum und Uhrzeit des Zugriffs.
+  </p>
+
+  <p className="mt-4">
+    Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an
+    einer sicheren, stabilen und effizienten Bereitstellung unserer Website
+    gemäß Art. 6 Abs. 1 lit. f DSGVO.
+  </p>
+
+  <p className="mt-4">
+    Eine Verarbeitung von Daten außerhalb der Europäischen Union kann nicht
+    ausgeschlossen werden. Netlify verwendet für internationale
+    Datenübermittlungen geeignete Schutzmechanismen, darunter
+    Standardvertragsklauseln.
+  </p>
+
+
 <section>
   <h2 className="text-2xl font-semibold text-white">
-    6. Speicherdauer
+    7. Nutzung von Supabase
+  </h2>
+
+  <p className="mt-4">
+    Für bestimmte technische Funktionen dieser Website nutzen wir Supabase.
+    Dabei können personenbezogene Daten verarbeitet werden, wenn diese im
+    Rahmen der Nutzung entsprechender Funktionen eingegeben oder technisch
+    übermittelt werden.
+  </p>
+
+  <p className="mt-4">
+    Zu den verarbeiteten Daten können insbesondere E-Mail-Adressen,
+    Nutzungsdaten, technische Informationen sowie weitere Angaben gehören,
+    die für die jeweilige Funktion erforderlich sind.
+  </p>
+
+  <p className="mt-4">
+    Die Verarbeitung erfolgt, soweit sie zur Durchführung eines Vertrags oder
+    vorvertraglicher Maßnahmen erforderlich ist, auf Grundlage von Art. 6
+    Abs. 1 lit. b DSGVO. Im Übrigen erfolgt sie auf Grundlage unseres
+    berechtigten Interesses an einer sicheren und funktionalen Bereitstellung
+    unserer Dienste gemäß Art. 6 Abs. 1 lit. f DSGVO.
+  </p>
+
+  <p className="mt-4">
+    Eine Verarbeitung personenbezogener Daten außerhalb der Europäischen Union
+    kann je nach eingesetzter Infrastruktur nicht vollständig ausgeschlossen
+    werden. Dabei werden die jeweils erforderlichen datenschutzrechtlichen
+    Schutzmechanismen berücksichtigt.
+  </p>
+</section>
+
+<section>
+  <h2 className="text-2xl font-semibold text-white">
+    7. Nutzung von Supabase
+  </h2>
+
+  <p className="mt-4">
+    Für bestimmte technische Funktionen dieser Website nutzen wir Supabase.
+    Dabei können personenbezogene Daten verarbeitet werden, wenn diese im
+    Rahmen der Nutzung entsprechender Funktionen eingegeben oder technisch
+    übermittelt werden.
+  </p>
+
+  <p className="mt-4">
+    Zu den verarbeiteten Daten können insbesondere E-Mail-Adressen,
+    Nutzungsdaten, technische Informationen sowie weitere Angaben gehören,
+    die für die jeweilige Funktion erforderlich sind.
+  </p>
+
+  <p className="mt-4">
+    Die Verarbeitung erfolgt, soweit sie zur Durchführung eines Vertrags oder
+    vorvertraglicher Maßnahmen erforderlich ist, auf Grundlage von Art. 6
+    Abs. 1 lit. b DSGVO. Im Übrigen erfolgt sie auf Grundlage unseres
+    berechtigten Interesses an einer sicheren und funktionalen Bereitstellung
+    unserer Dienste gemäß Art. 6 Abs. 1 lit. f DSGVO.
+  </p>
+
+  <p className="mt-4">
+    Eine Verarbeitung personenbezogener Daten außerhalb der Europäischen Union
+    kann je nach eingesetzter Infrastruktur nicht vollständig ausgeschlossen
+    werden. Dabei werden die jeweils erforderlichen datenschutzrechtlichen
+    Schutzmechanismen berücksichtigt.
+  </p>
+</section>
+
+<section>
+  <h2 className="text-2xl font-semibold text-white">
+    9. Speicherdauer
   </h2>
 
   <p className="mt-4">
@@ -109,7 +229,7 @@ export default function Datenschutz() {
   
 <section>
   <h2 className="text-2xl font-semibold text-white">
-    7. Deine Rechte
+    10. Deine Rechte
   </h2>
 
   <p className="mt-4">

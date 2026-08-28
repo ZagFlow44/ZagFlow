@@ -1,17 +1,33 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 
 export default function AiCustomerSupportPage() {
+  const [withdrawalAccepted, setWithdrawalAccepted] = useState(false);
+  const [consentError, setConsentError] = useState(false);
 
   const handleCheckout = async () => {
+    if (!withdrawalAccepted) {
+      setConsentError(true);
+      return;
+    }
+
+    setConsentError(false);
+
     const response = await fetch("/api/checkout", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        withdrawalConsent: withdrawalAccepted,
+      }),
     });
-  
+
     const data = await response.json();
-  
+
     if (data.url) {
       window.location.href = data.url;
     } else {
@@ -297,44 +313,86 @@ export default function AiCustomerSupportPage() {
       </div>
 
       <div className="rounded-3xl border border-indigo-500/30 bg-gradient-to-b from-indigo-500/10 to-violet-500/5 p-8 shadow-2xl shadow-indigo-950/20">
-        <p className="text-sm font-semibold text-indigo-300">
-          AI Customer Support Starter
-        </p>
+  <p className="text-sm font-semibold text-indigo-300">
+    AI Customer Support Starter
+  </p>
 
-        <div className="mt-5 flex items-end gap-2">
-          <span className="text-5xl font-bold text-white">79 €</span>
-          <span className="pb-1 text-gray-400">einmalig</span>
-        </div>
-
-        <p className="mt-4 text-sm leading-6 text-gray-400">
-          Digitales Produkt. Nach erfolgreicher Zahlung erhältst du Zugriff
-          auf den n8n-Workflow und den Setup Guide.
-        </p>
-
-        <button
-          type="button"
-          onClick={handleCheckout}
-          className="mt-8 w-full rounded-xl bg-indigo-600 px-6 py-3.5 font-semibold text-white transition hover:bg-indigo-500"
-        >
-          Jetzt kaufen
-        </button>
-
-        <div className="mt-6 border-t border-white/10 pt-6">
-          <p className="text-sm font-medium text-white">
-            Du benötigst:
-          </p>
-
-          <ul className="mt-3 space-y-2 text-sm text-gray-400">
-            <li>• n8n</li>
-            <li>• Gmail-Konto</li>
-            <li>• Groq API-Key</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  <div className="mt-5 flex items-end gap-2">
+    <span className="text-5xl font-bold text-white">79 €</span>
+    <span className="pb-1 text-gray-400">einmalig</span>
   </div>
-</section>
-      </main>
-    </>
-  );
+
+  <p className="mt-4 text-sm leading-6 text-gray-400">
+    Digitales Produkt. Nach erfolgreicher Zahlung erhältst du Zugriff
+    auf den n8n-Workflow und den Setup Guide.
+  </p>
+
+  <div className="mt-6">
+    <div className="flex items-start gap-3">
+      <input
+        id="withdrawalConsent"
+        type="checkbox"
+        checked={withdrawalAccepted}
+        onChange={(e) => {
+          setWithdrawalAccepted(e.target.checked);
+
+          if (e.target.checked) {
+            setConsentError(false);
+          }
+        }}
+        className="mt-1 h-4 w-4 shrink-0 cursor-pointer accent-indigo-600"
+      />
+
+      <label
+        htmlFor="withdrawalConsent"
+        className="cursor-pointer text-sm leading-6 text-gray-400"
+      >
+        Ich stimme ausdrücklich zu, dass CodeSpes vor Ablauf der Widerrufsfrist
+        mit der Bereitstellung der digitalen Inhalte beginnt. Mir ist bekannt,
+        dass ich dadurch mit Beginn der Vertragserfüllung mein Widerrufsrecht
+        verliere.{" "}
+        <Link
+          href="/widerruf"
+          target="_blank"
+          className="text-indigo-300 underline transition hover:text-indigo-200"
+        >
+          Widerrufsbelehrung
+        </Link>
+      </label>
+    </div>
+
+    {consentError && (
+      <div className="mt-4 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm leading-6 text-red-300">
+        Bitte bestätige zuerst die Zustimmung zur sofortigen Bereitstellung der
+        digitalen Inhalte.
+      </div>
+    )}
+  </div>
+
+  <button
+    type="button"
+    onClick={handleCheckout}
+    className="mt-6 w-full rounded-xl bg-indigo-600 px-6 py-3.5 font-semibold text-white transition hover:bg-indigo-500"
+  >
+    Zahlungspflichtig für 79 € bestellen
+  </button>
+
+  <div className="mt-6 border-t border-white/10 pt-6">
+    <p className="text-sm font-medium text-white">
+      Du benötigst:
+    </p>
+
+    <ul className="mt-3 space-y-2 text-sm text-gray-400">
+      <li>• n8n</li>
+      <li>• Gmail-Konto</li>
+      <li>• Groq API-Key</li>
+    </ul>
+  </div>
+  </div>
+  </div>
+    </div>
+  </section>
+</main>
+</>
+);
 }

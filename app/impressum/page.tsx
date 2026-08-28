@@ -35,31 +35,8 @@ export default function Impressum() {
               </p>
             </section>
   
-          <section>
-  <h2 className="text-2xl font-semibold text-white">
-    Umsatzsteuer
-  </h2>
-
-  <p className="mt-4">
-    Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:
-    <br />
-    Wird ergänzt, sofern eine Umsatzsteuer-Identifikationsnummer vergeben wurde.
-  </p>
-</section>
-  
-          <section>
-            <h2 className="text-2xl font-semibold text-white">
-              Verantwortlich für den Inhalt
-            </h2>
-  
-            <p className="mt-4">
-              Elvin Ceyran
-              <br />
-              Aufsicht 5
-            </p>
-          </section>
-  
-        </div>
+          
+            </div>
       </main>
     );
   }
