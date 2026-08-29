@@ -6,13 +6,15 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const withdrawalConsent = body.withdrawalConsent === true;
 
-    if (!withdrawalConsent) {
+    const businessConfirmed = body.businessConfirmed === true;
+    const termsAccepted = body.termsAccepted === true;
+
+    if (!businessConfirmed || !termsAccepted) {
       return NextResponse.json(
         {
           error:
-            "Die Zustimmung zur sofortigen Bereitstellung wurde nicht erteilt.",
+            "Bitte bestätige, dass du als Unternehmer handelst und die AGB akzeptierst.",
         },
         { status: 400 }
       );
@@ -38,8 +40,9 @@ export async function POST(request: NextRequest) {
       ],
 
       metadata: {
-        withdrawal_consent: "true",
-        withdrawal_consent_at: new Date().toISOString(),
+        business_confirmed: "true",
+        terms_accepted: "true",
+        terms_accepted_at: new Date().toISOString(),
         product: "ai-customer-support-starter",
       },
 

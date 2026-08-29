@@ -38,13 +38,13 @@ export const metadata: Metadata = {
 
   creator: "CodeSpes",
 
-  metadataBase: new URL("https://quiet-salmiakki-25f200.netlify.app"),
+  metadataBase: new URL("https://www.codespes.com"),
 
   openGraph: {
     title: "CodeSpes",
     description:
       "KI-Automatisierung für Shopify- und E-Commerce-Unternehmen.",
-      url: "https://quiet-salmiakki-25f200.netlify.app",
+      url: "https://www.codespes.com",
     siteName: "CodeSpes",
     locale: "de_DE",
     type: "website",

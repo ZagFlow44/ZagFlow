@@ -121,13 +121,10 @@ export default function Footer() {
             </li>
 
             <li>
-              <Link
-                href="/widerruf"
-                className="transition hover:text-white"
-              >
-                Widerrufsbelehrung
-              </Link>
-            </li>
+  <Link href="/agb" className="transition hover:text-white">
+    AGB & Lizenzbedingungen
+  </Link>
+</li>
           </ul>
         </div>
       </div>

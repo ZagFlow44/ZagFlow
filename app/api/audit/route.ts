@@ -450,7 +450,7 @@ const pdfAttachment =
 
     // 3. Audit + Blueprint per E-Mail senden
     const { data, error } = await resend.emails.send({
-      from: "CodeSpes <onboarding@resend.dev>",
+      from: "CodeSpes <audit@codespes.com>",
       to: process.env.CONTACT_EMAIL!,
       replyTo: email,
       subject: `Automation Blueprint – ${name}`,
@@ -525,7 +525,7 @@ const pdfAttachment =
     }
 
     const { error: customerEmailError } = await resend.emails.send({
-      from: "CodeSpes <onboarding@resend.dev>",
+      from: "CodeSpes <audit@codespes.com>",
       to: email,
       subject: "Dein persönlicher CodeSpes Automation Blueprint",
       html: `
@@ -576,7 +576,7 @@ const pdfAttachment =
             </p>
     
             <a
-              href="https://quiet-salmiakki-25f200.netlify.app/kontakt"
+              href="https://www.codespes.com/kontakt"
               style="
                 display: inline-block;
                 margin-top: 15px;

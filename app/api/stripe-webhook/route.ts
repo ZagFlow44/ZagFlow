@@ -51,11 +51,14 @@ export async function POST(request: NextRequest) {
       const siteUrl =
         process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
-      const consentGiven =
-        session.metadata?.withdrawal_consent === "true";
-
-      const consentDate =
-        session.metadata?.withdrawal_consent_at || "nicht verfügbar";
+        const businessConfirmed =
+        session.metadata?.business_confirmed === "true";
+      
+      const termsAccepted =
+        session.metadata?.terms_accepted === "true";
+      
+      const termsAcceptedAt =
+        session.metadata?.terms_accepted_at || "nicht verfügbar";
 
       await resend.emails.send({
         from: "CodeSpes <onboarding@resend.dev>",
@@ -83,13 +86,32 @@ export async function POST(request: NextRequest) {
 
             <hr style="margin: 30px 0; border: 0; border-top: 1px solid #e5e7eb;" />
 
-            <h2 style="font-size: 20px;">
-              Hinweis zur sofortigen Bereitstellung
-            </h2>
+           <h2 style="font-size: 20px;">
+  Bestätigung zum Geschäftskauf
+</h2>
+
+<p>
+  ${
+    businessConfirmed && termsAccepted
+      ? "Du hast bestätigt, dass du beim Kauf als Unternehmer im Sinne des § 14 BGB handelst und die AGB sowie Lizenzbedingungen von CodeSpes akzeptierst."
+      : "Die erforderliche Unternehmer- bzw. AGB-Bestätigung konnte für diese Bestellung nicht festgestellt werden."
+  }
+</p>
+
+<p>
+  <strong>Zeitpunkt der AGB-Bestätigung:</strong>
+  ${termsAcceptedAt}
+</p>
+
+<p>
+  <a href="${siteUrl}/agb">
+    AGB und Lizenzbedingungen ansehen
+  </a>
+</p>
 
             <p>
               ${
-                consentGiven
+                businessConfirmed && termsAccepted
                   ? "Du hast ausdrücklich zugestimmt, dass CodeSpes vor Ablauf der Widerrufsfrist mit der Bereitstellung der digitalen Inhalte beginnt. Du hast bestätigt, dass dir bekannt ist, dass du dadurch mit Beginn der Vertragserfüllung dein Widerrufsrecht verlierst."
                   : "Für diese Bestellung konnte keine Zustimmung zur sofortigen Bereitstellung festgestellt werden."
               }
@@ -97,7 +119,7 @@ export async function POST(request: NextRequest) {
 
             <p>
               <strong>Zeitpunkt der Zustimmung:</strong>
-              ${consentDate}
+              ${termsAcceptedAt}
             </p>
 
             <p>

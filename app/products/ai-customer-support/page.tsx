@@ -5,16 +5,17 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 
 export default function AiCustomerSupportPage() {
-  const [withdrawalAccepted, setWithdrawalAccepted] = useState(false);
-  const [consentError, setConsentError] = useState(false);
+  const [businessConfirmed, setBusinessConfirmed] = useState(false);
+const [termsAccepted, setTermsAccepted] = useState(false);
+const [checkoutError, setCheckoutError] = useState(false);
 
   const handleCheckout = async () => {
-    if (!withdrawalAccepted) {
-      setConsentError(true);
+    if (!businessConfirmed || !termsAccepted) {
+      setCheckoutError(true);
       return;
     }
-
-    setConsentError(false);
+    
+    setCheckoutError(false);
 
     const response = await fetch("/api/checkout", {
       method: "POST",
@@ -22,7 +23,8 @@ export default function AiCustomerSupportPage() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        withdrawalConsent: withdrawalAccepted,
+        businessConfirmed,
+        termsAccepted,
       }),
     });
 
@@ -327,48 +329,69 @@ export default function AiCustomerSupportPage() {
     auf den n8n-Workflow und den Setup Guide.
   </p>
 
-  <div className="mt-6">
-    <div className="flex items-start gap-3">
-      <input
-        id="withdrawalConsent"
-        type="checkbox"
-        checked={withdrawalAccepted}
-        onChange={(e) => {
-          setWithdrawalAccepted(e.target.checked);
+  <div className="mt-6 space-y-4">
+  <div className="flex items-start gap-3">
+    <input
+      id="businessConfirmation"
+      type="checkbox"
+      checked={businessConfirmed}
+      onChange={(e) => {
+        setBusinessConfirmed(e.target.checked);
 
-          if (e.target.checked) {
-            setConsentError(false);
-          }
-        }}
-        className="mt-1 h-4 w-4 shrink-0 cursor-pointer accent-indigo-600"
-      />
+        if (e.target.checked && termsAccepted) {
+          setCheckoutError(false);
+        }
+      }}
+      className="mt-1 h-4 w-4 shrink-0 cursor-pointer accent-indigo-600"
+    />
 
-      <label
-        htmlFor="withdrawalConsent"
-        className="cursor-pointer text-sm leading-6 text-gray-400"
-      >
-        Ich stimme ausdrücklich zu, dass CodeSpes vor Ablauf der Widerrufsfrist
-        mit der Bereitstellung der digitalen Inhalte beginnt. Mir ist bekannt,
-        dass ich dadurch mit Beginn der Vertragserfüllung mein Widerrufsrecht
-        verliere.{" "}
-        <Link
-          href="/widerruf"
-          target="_blank"
-          className="text-indigo-300 underline transition hover:text-indigo-200"
-        >
-          Widerrufsbelehrung
-        </Link>
-      </label>
-    </div>
-
-    {consentError && (
-      <div className="mt-4 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm leading-6 text-red-300">
-        Bitte bestätige zuerst die Zustimmung zur sofortigen Bereitstellung der
-        digitalen Inhalte.
-      </div>
-    )}
+    <label
+      htmlFor="businessConfirmation"
+      className="cursor-pointer text-sm leading-6 text-gray-400"
+    >
+      Ich bestätige, dass ich als Unternehmer im Sinne des § 14 BGB handle
+      und den Kauf für meine gewerbliche oder selbständige berufliche
+      Tätigkeit tätige.
+    </label>
   </div>
 
+  <div className="flex items-start gap-3">
+    <input
+      id="termsAccepted"
+      type="checkbox"
+      checked={termsAccepted}
+      onChange={(e) => {
+        setTermsAccepted(e.target.checked);
+
+        if (e.target.checked && businessConfirmed) {
+          setCheckoutError(false);
+        }
+      }}
+      className="mt-1 h-4 w-4 shrink-0 cursor-pointer accent-indigo-600"
+    />
+
+    <label
+      htmlFor="termsAccepted"
+      className="cursor-pointer text-sm leading-6 text-gray-400"
+    >
+      Ich habe die{" "}
+      <Link
+        href="/agb"
+        target="_blank"
+        className="text-indigo-300 underline transition hover:text-indigo-200"
+      >
+        AGB und Lizenzbedingungen
+      </Link>{" "}
+      gelesen und akzeptiere sie.
+    </label>
+  </div>
+
+  {checkoutError && (
+    <div className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm leading-6 text-red-300">
+      Bitte bestätige beide Angaben, bevor du mit der Bestellung fortfährst.
+    </div>
+  )}
+</div>
   <button
     type="button"
     onClick={handleCheckout}
