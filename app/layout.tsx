@@ -19,40 +19,54 @@ export const metadata: Metadata = {
   },
 
   description:
-    "CodeSpes automatisiert Shopify- und E-Commerce-Prozesse mit KI. Spare Zeit, optimiere Produktdaten und skaliere dein Unternehmen mit intelligenten Workflows.",
+    "CodeSpes entwickelt KI-Automatisierungen für Shopify- und E-Commerce-Unternehmen. Automatisiere Produktdaten, Kundenservice, Retouren, E-Mails und interne Workflows.",
 
   keywords: [
-    "Shopify",
     "Shopify Automatisierung",
-    "E-Commerce",
-    "KI",
-    "Künstliche Intelligenz",
+    "E-Commerce Automatisierung",
+    "KI Automatisierung",
+    "AI Automation",
+    "Shopify AI",
     "Workflow Automation",
-    "SEO",
-    "Produktoptimierung",
-    "Shopify SEO",
+    "Customer Support Automation",
+    "Returns Automation",
+    "Product Automation",
     "CodeSpes",
   ],
 
   authors: [{ name: "CodeSpes" }],
-
   creator: "CodeSpes",
 
   metadataBase: new URL("https://www.codespes.com"),
 
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    title: "CodeSpes",
+    title: "CodeSpes | KI-Automatisierung für Shopify & E-Commerce",
     description:
-      "KI-Automatisierung für Shopify- und E-Commerce-Unternehmen.",
-      url: "https://www.codespes.com",
+      "Automatisiere Shopify- und E-Commerce-Prozesse mit KI – von Produktdaten und Support bis zu Retouren und E-Mail-Workflows.",
+    url: "https://www.codespes.com",
     siteName: "CodeSpes",
     locale: "de_DE",
     type: "website",
   },
 
+  twitter: {
+    card: "summary_large_image",
+    title: "CodeSpes | KI-Automatisierung für Shopify & E-Commerce",
+    description:
+      "KI-Automatisierung für Shopify, Kundenservice, Retouren, Produktdaten und E-Commerce-Workflows.",
+  },
+
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 };
 
