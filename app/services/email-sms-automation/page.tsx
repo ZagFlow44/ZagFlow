@@ -1,5 +1,21 @@
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "E-Mail & SMS Automation für E-Commerce",
+  description:
+    "Automatisiere E-Mails, SMS, Bestellbenachrichtigungen und Follow-ups. CodeSpes entwickelt intelligente Kommunikations-Workflows für E-Commerce-Unternehmen.",
+  alternates: {
+    canonical: "/services/email-sms-automation",
+  },
+  openGraph: {
+    title: "E-Mail & SMS Automation für E-Commerce | CodeSpes",
+    description:
+      "Automatisiere E-Mails, SMS, Benachrichtigungen und Follow-ups mit intelligenten Workflows.",
+    url: "https://www.codespes.com/services/email-sms-automation",
+  },
+};
 
 export default function EmailSmsAutomationPage() {
   return (

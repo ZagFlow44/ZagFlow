@@ -1,3 +1,18 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Impressum",
+  description:
+    "Impressum von CodeSpes mit Angaben gemäß § 5 DDG und Kontaktinformationen.",
+  alternates: {
+    canonical: "/impressum",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function Impressum() {
     return (
       <main className="mx-auto max-w-4xl px-6 py-24 text-white">

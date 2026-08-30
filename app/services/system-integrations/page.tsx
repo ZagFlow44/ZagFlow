@@ -1,5 +1,21 @@
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "System Integrations für E-Commerce",
+  description:
+    "Verbinde Shopify, CRM, E-Mail, Google Workspace, APIs und weitere Systeme. CodeSpes entwickelt stabile Integrationen und automatisierte Datenflüsse für E-Commerce-Unternehmen.",
+  alternates: {
+    canonical: "/services/system-integrations",
+  },
+  openGraph: {
+    title: "System Integrations für E-Commerce | CodeSpes",
+    description:
+      "Verbinde deine E-Commerce-Systeme und automatisiere den Datenaustausch zwischen deinen Tools.",
+    url: "https://www.codespes.com/services/system-integrations",
+  },
+};
 
 export default function SystemIntegrationsPage() {
   return (

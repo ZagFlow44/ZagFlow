@@ -1,5 +1,21 @@
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Custom Workflows für E-Commerce",
+  description:
+    "Individuelle KI- und Automatisierungs-Workflows für E-Commerce-Unternehmen. CodeSpes verbindet Prozesse, Systeme und Daten zu passgenauen Automatisierungen.",
+  alternates: {
+    canonical: "/services/custom-workflows",
+  },
+  openGraph: {
+    title: "Custom Workflows für E-Commerce | CodeSpes",
+    description:
+      "Individuelle Automatisierungen für komplexe E-Commerce-Prozesse und Systemlandschaften.",
+    url: "https://www.codespes.com/services/custom-workflows",
+  },
+};
 
 export default function CustomWorkflowsPage() {
   return (

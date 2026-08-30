@@ -1,5 +1,21 @@
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Returns Automation für E-Commerce",
+  description:
+    "Automatisiere Retourenanfragen, Status-E-Mails, Rückgabegründe und interne Abläufe. CodeSpes entwickelt intelligente Retouren-Workflows für E-Commerce-Unternehmen.",
+  alternates: {
+    canonical: "/services/returns-automation",
+  },
+  openGraph: {
+    title: "Returns Automation für E-Commerce | CodeSpes",
+    description:
+      "Automatisiere Retourenanfragen, Status-E-Mails und interne Prozesse mit intelligenten Workflows.",
+    url: "https://www.codespes.com/services/returns-automation",
+  },
+};
 
 export default function ReturnsAutomationPage() {
   return (

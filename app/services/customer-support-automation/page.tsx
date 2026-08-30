@@ -1,5 +1,21 @@
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Customer Support Automation für E-Commerce",
+  description:
+    "Automatisiere Bestellstatus, Versandfragen, FAQs und Support-Tickets mit KI. CodeSpes entwickelt intelligente Customer-Support-Workflows für E-Commerce-Unternehmen.",
+  alternates: {
+    canonical: "/services/customer-support-automation",
+  },
+  openGraph: {
+    title: "Customer Support Automation für E-Commerce | CodeSpes",
+    description:
+      "Automatisiere wiederkehrende Support-Anfragen, Ticket-Kategorisierung und Standardantworten mit KI.",
+    url: "https://www.codespes.com/services/customer-support-automation",
+  },
+};
 
 export default function CustomerSupportAutomationPage() {
   return (

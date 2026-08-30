@@ -1,5 +1,21 @@
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Product Automation für Shopify",
+  description:
+    "Automatisiere Produktbeschreibungen, SEO-Daten, Alt-Texte und Produktpflege in Shopify mit KI und intelligenten Workflows von CodeSpes.",
+  alternates: {
+    canonical: "/services/product-automation",
+  },
+  openGraph: {
+    title: "Product Automation für Shopify | CodeSpes",
+    description:
+      "Automatisiere Produktbeschreibungen, SEO-Daten, Alt-Texte und Produktpflege mit KI.",
+    url: "https://www.codespes.com/services/product-automation",
+  },
+};
 
 export default function ProductAutomationPage() {
   return (

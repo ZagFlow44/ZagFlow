@@ -1,3 +1,18 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Datenschutzerklärung",
+  description:
+    "Datenschutzerklärung von CodeSpes mit Informationen zur Verarbeitung personenbezogener Daten und zu eingesetzten Diensten.",
+  alternates: {
+    canonical: "/datenschutz",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function Datenschutz() {
     return (
       <main className="mx-auto max-w-4xl px-6 py-24 text-white">
@@ -74,25 +89,7 @@ export default function Datenschutz() {
     5. Hosting durch Netlify
   </h2>
 
-  <p className="mt-4">
-    Diese Website wird über Netlify bereitgestellt. Anbieter ist Netlify, Inc.
-    Beim Aufruf der Website können technisch erforderliche Daten verarbeitet
-    werden, insbesondere IP-Adresse, Browserinformationen, Betriebssystem sowie
-    Datum und Uhrzeit des Zugriffs.
-  </p>
-
-  <p className="mt-4">
-    Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an
-    einer sicheren, stabilen und effizienten Bereitstellung unserer Website
-    gemäß Art. 6 Abs. 1 lit. f DSGVO.
-  </p>
-
-  <p className="mt-4">
-    Eine Verarbeitung von Daten außerhalb der Europäischen Union kann nicht
-    ausgeschlossen werden. Netlify verwendet für internationale
-    Datenübermittlungen geeignete Schutzmechanismen, darunter
-    Standardvertragsklauseln.
-  </p>
+  
 </section>
 
   <section>
@@ -147,39 +144,7 @@ export default function Datenschutz() {
   </p>
 
 
-<section>
-  <h2 className="text-2xl font-semibold text-white">
-    7. Nutzung von Supabase
-  </h2>
 
-  <p className="mt-4">
-    Für bestimmte technische Funktionen dieser Website nutzen wir Supabase.
-    Dabei können personenbezogene Daten verarbeitet werden, wenn diese im
-    Rahmen der Nutzung entsprechender Funktionen eingegeben oder technisch
-    übermittelt werden.
-  </p>
-
-  <p className="mt-4">
-    Zu den verarbeiteten Daten können insbesondere E-Mail-Adressen,
-    Nutzungsdaten, technische Informationen sowie weitere Angaben gehören,
-    die für die jeweilige Funktion erforderlich sind.
-  </p>
-
-  <p className="mt-4">
-    Die Verarbeitung erfolgt, soweit sie zur Durchführung eines Vertrags oder
-    vorvertraglicher Maßnahmen erforderlich ist, auf Grundlage von Art. 6
-    Abs. 1 lit. b DSGVO. Im Übrigen erfolgt sie auf Grundlage unseres
-    berechtigten Interesses an einer sicheren und funktionalen Bereitstellung
-    unserer Dienste gemäß Art. 6 Abs. 1 lit. f DSGVO.
-  </p>
-
-  <p className="mt-4">
-    Eine Verarbeitung personenbezogener Daten außerhalb der Europäischen Union
-    kann je nach eingesetzter Infrastruktur nicht vollständig ausgeschlossen
-    werden. Dabei werden die jeweils erforderlichen datenschutzrechtlichen
-    Schutzmechanismen berücksichtigt.
-  </p>
-</section>
 
 <section>
   <h2 className="text-2xl font-semibold text-white">
@@ -217,7 +182,7 @@ export default function Datenschutz() {
 
 <section>
   <h2 className="text-2xl font-semibold text-white">
-    9. Speicherdauer
+    8. Speicherdauer
   </h2>
 
   <p className="mt-4">
@@ -229,7 +194,7 @@ export default function Datenschutz() {
   
 <section>
   <h2 className="text-2xl font-semibold text-white">
-    10. Deine Rechte
+    9. Deine Rechte
   </h2>
 
   <p className="mt-4">
