@@ -2,6 +2,12 @@
 
 import { useEffect, useState } from "react";
 
+declare global {
+    interface Window {
+      "ga-disable-G-9PW9FNVX6Q": boolean;
+    }
+  }
+
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
@@ -31,12 +37,18 @@ export default function CookieConsent() {
 
   function acceptCookies() {
     localStorage.setItem("codespes-cookie-consent", "accepted");
+  
+    window["ga-disable-G-9PW9FNVX6Q"] = false;
+  
     window.dispatchEvent(new Event("codespes-consent-updated"));
     setVisible(false);
   }
 
   function rejectCookies() {
     localStorage.setItem("codespes-cookie-consent", "rejected");
+  
+    window["ga-disable-G-9PW9FNVX6Q"] = true;
+  
     window.dispatchEvent(new Event("codespes-consent-updated"));
     setVisible(false);
   }
