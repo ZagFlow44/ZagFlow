@@ -59,6 +59,7 @@ export default function Navbar() {
   href="https://cal.com/elvin-ceyran-ppawdm/strategiegespraech"
   target="_blank"
   rel="noopener noreferrer"
+  className="hidden md:block"
 >
   <Button>Strategiegespräch buchen</Button>
 </a>
