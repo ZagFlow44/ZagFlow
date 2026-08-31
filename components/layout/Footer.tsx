@@ -105,6 +105,17 @@ export default function Footer() {
             </li>
 
             <li>
+  <a
+    href="https://cal.com/elvin-ceyran-ppawdm/strategiegespraech"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="transition hover:text-white"
+  >
+    Strategiegespräch buchen
+  </a>
+</li>
+
+            <li>
               <Link
                 href="/impressum"
                 className="transition hover:text-white"

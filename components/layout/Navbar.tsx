@@ -55,8 +55,12 @@ export default function Navbar() {
 ))}
         </nav>
 
-        <a href="/#kontakt">
-  <Button>Audit buchen</Button>
+        <a
+  href="https://cal.com/elvin-ceyran-ppawdm/strategiegespraech"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button>Strategiegespräch buchen</Button>
 </a>
 
 <button
@@ -84,11 +88,13 @@ export default function Navbar() {
 ))}
 
 <a
-  href="/#kontakt"
+  href="https://cal.com/elvin-ceyran-ppawdm/strategiegespraech"
+  target="_blank"
+  rel="noopener noreferrer"
   onClick={() => setMenuOpen(false)}
   className="mt-4 rounded-xl bg-indigo-600 px-6 py-3 text-center font-semibold text-white hover:bg-indigo-500"
 >
-  Audit buchen
+  Strategiegespräch buchen
 </a>
           </div>
         </div>

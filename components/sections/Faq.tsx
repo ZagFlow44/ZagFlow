@@ -24,6 +24,13 @@ const faqs = [
     answer:
       "Wir analysieren deinen Shop, identifizieren Automatisierungspotenziale und erstellen einen konkreten Maßnahmenplan.",
   },
+
+  {
+    question: "Wie läuft das kostenlose Strategiegespräch ab?",
+    answer:
+      "Im kostenlosen 30-minütigen Strategiegespräch besprechen wir deine aktuellen E-Commerce-Prozesse, mögliche Automatisierungspotenziale und passende KI-Workflows für dein Unternehmen.",
+  },
+
   {
     question: "Gibt es laufenden Support?",
     answer:

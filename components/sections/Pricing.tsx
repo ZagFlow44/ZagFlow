@@ -11,7 +11,7 @@ const plans = [
         "Konkreter Maßnahmenplan",
       ],
       cta: "Audit buchen",
-      href: "/#kontakt",
+      href: "/audit",
     },
     {
       name: "Automation Sprint",
@@ -40,7 +40,7 @@ const plans = [
         "Priorisierter Support",
       ],
       cta: "Termin buchen",
-      href: "/#kontakt",
+      href: "https://cal.com/elvin-ceyran-ppawdm/strategiegespraech",
     },
   ];
   

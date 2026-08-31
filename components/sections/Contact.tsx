@@ -141,7 +141,7 @@ export default function Contact() {
           </div>
 
           <button disabled={status === "loading"} className="w-full rounded-xl bg-indigo-600 px-6 py-4 font-semibold text-white transition hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-60">
-            {status === "loading" ? "Wird gesendet..." : "Kostenloses Audit anfragen"}
+            {status === "loading" ? "Wird gesendet..." : "Projekt unverbindlich anfragen"}
           </button>
 
           {status === "success" && (
