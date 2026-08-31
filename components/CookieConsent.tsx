@@ -7,10 +7,26 @@ export default function CookieConsent() {
 
   useEffect(() => {
     const consent = localStorage.getItem("codespes-cookie-consent");
-
+  
     if (!consent) {
       setVisible(true);
     }
+  
+    function openCookieConsent() {
+      setVisible(true);
+    }
+  
+    window.addEventListener(
+      "codespes-open-cookie-consent",
+      openCookieConsent
+    );
+  
+    return () => {
+      window.removeEventListener(
+        "codespes-open-cookie-consent",
+        openCookieConsent
+      );
+    };
   }, []);
 
   function acceptCookies() {

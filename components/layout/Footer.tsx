@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -119,6 +121,18 @@ export default function Footer() {
                 Datenschutz
               </Link>
             </li>
+
+            <li>
+  <button
+    type="button"
+    onClick={() => {
+      window.dispatchEvent(new Event("codespes-open-cookie-consent"));
+    }}
+    className="transition hover:text-white"
+  >
+    Cookie-Einstellungen
+  </button>
+</li>
 
             <li>
   <Link href="/agb" className="transition hover:text-white">
