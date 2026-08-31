@@ -59,12 +59,14 @@ export default function Navbar() {
   <Button>Audit buchen</Button>
 </a>
 
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="rounded-xl border border-white/10 bg-white/5 p-3 text-white md:hidden"
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+<button
+  onClick={() => setMenuOpen(!menuOpen)}
+  aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
+  aria-expanded={menuOpen}
+  className="rounded-xl border border-white/10 bg-white/5 p-3 text-white md:hidden"
+>
+  {menuOpen ? <X size={22} /> : <Menu size={22} />}
+</button>
       </div>
 
       {menuOpen && (
