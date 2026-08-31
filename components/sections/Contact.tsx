@@ -96,13 +96,17 @@ export default function Contact() {
           </div>
 
           <div>
-  <label className="mb-2 block text-sm text-gray-300">
-    Gewünschte Leistung
-  </label>
+          <label
+  htmlFor="service"
+  className="mb-2 block text-sm text-gray-300"
+>
+  Gewünschte Leistung
+</label>
 
-  <select
-    name="service"
-    required
+<select
+  id="service"
+  name="service"
+  required
     defaultValue=""
     className="w-full rounded-xl border border-white/10 bg-[#0F172A] p-4 text-white outline-none"
   >

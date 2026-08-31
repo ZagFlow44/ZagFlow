@@ -48,13 +48,19 @@ export default function Hero() {
           </div>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-  <a href="/#kontakt">
-    <Button>Kostenloses Audit buchen</Button>
-  </a>
+          <a
+  href="/#kontakt"
+  className="inline-flex min-h-11 items-center"
+>
+  <Button>Kostenloses Audit buchen</Button>
+</a>
 
-  <a href="/#plattform">
-    <Button variant="secondary">Plattform ansehen</Button>
-  </a>
+<a
+  href="/#plattform"
+  className="inline-flex min-h-11 items-center"
+>
+  <Button variant="secondary">Plattform ansehen</Button>
+</a>
 </div>
         </motion.div>
 
@@ -71,9 +77,9 @@ export default function Hero() {
               <div className="flex items-center justify-between border-b border-white/10 pb-5">
                 <div>
                   <p className="text-sm text-gray-400">CodeSpes Plattform</p>
-                  <h3 className="mt-1 text-xl font-bold text-white">
+                  <h2 className="mt-1 text-xl font-bold text-white">
                     Commerce Kontrollzentrum
-                  </h3>
+                  </h2>
                 </div>
 
                 <span className="rounded-full bg-cyan-500/20 px-3 py-1 text-sm text-cyan-300">

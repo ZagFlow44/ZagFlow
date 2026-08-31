@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-semibold text-white">Leistungen</h4>
+          <h2 className="font-semibold text-white">Leistungen</h2>
 
           <ul className="mt-4 space-y-3 text-gray-400">
             <li>
@@ -81,7 +81,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-semibold text-white">Unternehmen</h4>
+          <h2 className="font-semibold text-white">Unternehmen</h2>
 
           <ul className="mt-4 space-y-3 text-gray-400">
             <li>
@@ -129,7 +129,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 flex max-w-7xl flex-col justify-between gap-4 border-t border-white/10 pt-6 text-sm text-gray-500 md:flex-row">
+      <div className="mx-auto mt-12 flex max-w-7xl flex-col justify-between gap-4 border-t border-white/10 pt-6 text-sm text-gray-400 md:flex-row">
         <p>©️ 2026 CodeSpes. Alle Rechte vorbehalten.</p>
         <p>Built for modern eCommerce teams.</p>
       </div>
