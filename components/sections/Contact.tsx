@@ -59,6 +59,17 @@ export default function Contact() {
         </p>
       </div>
 
+      <div className="mx-auto mt-10 flex max-w-3xl justify-center">
+  <a
+    href="https://cal.com/elvin-ceyran-ppawdm/strategiegespraech"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="rounded-xl border border-indigo-400/30 bg-indigo-500/10 px-8 py-4 font-semibold text-indigo-200 shadow-lg shadow-indigo-500/10 transition hover:bg-indigo-500/20 hover:text-white"
+  >
+    Kostenloses Strategiegespräch buchen
+  </a>
+</div>
+
       <div className="mx-auto mt-16 max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid gap-6 md:grid-cols-2">

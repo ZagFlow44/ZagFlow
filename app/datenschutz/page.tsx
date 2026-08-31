@@ -352,8 +352,43 @@ export default function Datenschutz() {
         </section>
 
         <section>
+  <h2 className="text-2xl font-semibold text-white">
+    12. Terminbuchung über Cal.com
+  </h2>
+
+  <p className="mt-4">
+    Für die Online-Terminbuchung eines kostenlosen Strategiegesprächs nutzen
+    wir den Dienst Cal.com.
+  </p>
+
+  <p className="mt-4">
+    Wenn du über den auf unserer Website verlinkten Buchungskalender einen
+    Termin vereinbarst, werden die von dir eingegebenen Daten über Cal.com
+    verarbeitet.
+  </p>
+
+  <p className="mt-4">
+    Dazu können insbesondere dein Name, deine E-Mail-Adresse, dein Unternehmen,
+    Angaben zu deinem Automatisierungswunsch, zusätzliche Notizen sowie der
+    gewünschte Termin gehören.
+  </p>
+
+  <p className="mt-4">
+    Die Verarbeitung erfolgt zur Durchführung vorvertraglicher Maßnahmen gemäß
+    Art. 6 Abs. 1 lit. b DSGVO, soweit die Terminbuchung im Zusammenhang mit
+    einer möglichen Beauftragung von CodeSpes erfolgt.
+  </p>
+
+  <p className="mt-4">
+    Im Rahmen der Terminbuchung kann Cal.com außerdem technische Daten
+    verarbeiten, die für die Bereitstellung und Durchführung der Buchung
+    erforderlich sind.
+  </p>
+</section>
+
+        <section>
           <h2 className="text-2xl font-semibold text-white">
-            12. Speicherdauer
+            13. Speicherdauer
           </h2>
 
           <p className="mt-4">
@@ -371,7 +406,7 @@ export default function Datenschutz() {
 
         <section>
           <h2 className="text-2xl font-semibold text-white">
-            13. Widerruf einer Einwilligung
+            14. Widerruf einer Einwilligung
           </h2>
 
           <p className="mt-4">
@@ -388,7 +423,7 @@ export default function Datenschutz() {
 
         <section>
           <h2 className="text-2xl font-semibold text-white">
-            14. Deine Rechte
+            15. Deine Rechte
           </h2>
 
           <p className="mt-4">
@@ -409,7 +444,7 @@ export default function Datenschutz() {
 
         <section>
           <h2 className="text-2xl font-semibold text-white">
-            15. Stand der Datenschutzerklärung
+            16. Stand der Datenschutzerklärung
           </h2>
 
           <p className="mt-4">
